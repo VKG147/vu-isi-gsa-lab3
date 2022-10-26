@@ -1,0 +1,36 @@
+﻿<Window x:Class="Lab3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab3"
+        mc:Ignorable="d"
+        Title="VAudioPlot" Height="419" Width="800"
+        ResizeMode="NoResize">
+    <Border Height="418" VerticalAlignment="Top">
+        <Grid Margin="0,0,0,55">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="221*"/>
+                <ColumnDefinition Width="579*"/>
+            </Grid.ColumnDefinitions>
+            <Label Margin="10,10,10,0" Grid.Column="0" Height="26" VerticalAlignment="Top">Current audio file:</Label>
+            <Label Name="loadedFileLabel" Margin="10,41,10,0" Grid.Column="0" Height="26" VerticalAlignment="Top">file.wav</Label>
+            <Button Name="btnOpenFile" Margin="26,12,0,0" Click="btnOpenFile_Click" Height="22" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Width="92">Browse</Button>
+            <Label Margin="179,0,314,328" Height="23" VerticalAlignment="Bottom" Grid.Column="1">Marker at:</Label>
+            <TextBox Name="txtboxMarkerTime" Margin="256,13,237,327" Grid.Column="1" TextChanged="txtboxMarkerTime_TextChanged"/>
+            <ComboBox Name="comboTimeUnit" Margin="350,13,0,327" Grid.Column="1" HorizontalAlignment="Left" Width="113" SelectionChanged="comboTimeUnit_SelectionChanged">
+                <ComboBoxItem Content="milliseconds"></ComboBoxItem>
+                <ComboBoxItem Content="seconds" IsSelected="True"></ComboBoxItem>
+                <ComboBoxItem Content="minutes"></ComboBoxItem>
+            </ComboBox>
+            <CheckBox Name="channel1Checkbox" Grid.Column="1" Margin="188,49,357,296" IsEnabled="False" Checked="channel1Checkbox_Checked" Unchecked="channel1Checkbox_Unchecked"></CheckBox>
+            <Label Grid.Column="1" Margin="205,43,300,297" Content="channel1"></Label>
+            <CheckBox Name="channel2Checkbox" Grid.Column="1" Margin="304,49,241,296" IsEnabled="False" Checked="channel2Checkbox_Checked" Unchecked="channel2Checkbox_Unchecked"/>
+            <Label Grid.Column="1" Margin="321,43,182,297" Content="channel2"/>
+            <WpfPlot Name="audioPlot" Margin="0,72,0,0" Grid.Column="0" Grid.ColumnSpan="2"/>
+            <Label Name="loadTimeLabel" Grid.Column="1" Margin="379,345,0,-11" Foreground="Red"></Label>
+            <Button x:Name="btnPlay" Margin="26,42,0,0" Height="22" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Width="92" Content="Play" IsEnabled="False" Click="btnPlay_Click"/>
+        </Grid>
+    </Border>
+
+</Window>
